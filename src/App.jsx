@@ -36,10 +36,33 @@ function Scanner({ onScan, onClose }) {
 
 function App() {
   const [showScanner, setShowScanner] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const handleScan = value => {
     const input = document.getElementById("chariot");
     if (input) input.value = value;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+
+    const formData = new FormData(e.target);
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await res.json();
+      alert(data.message || "Email envoyé !");
+    } catch (err) {
+      console.error("Erreur envoi :", err);
+      alert("Une erreur est survenue.");
+    }
+
+    setSending(false);
   };
 
   return (
@@ -49,16 +72,16 @@ function App() {
         <img src="/logo.png" alt="Kuehne+Nagel Logo" className="logo" />
       </header>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="scan-row">
           <label htmlFor="chariot">Code Chariot :</label>
-          <input type="text" id="chariot" name="chariot" placeholder="Scannez ou entrez le code" />
+          <input type="text" id="chariot" name="chariot" placeholder="Scannez ou entrez le code" required />
           <button type="button" onClick={() => setShowScanner(true)} className="scan-button">Scanner</button>
         </div>
         {showScanner && <Scanner onScan={handleScan} onClose={() => setShowScanner(false)} />}
 
         <label htmlFor="etat">État du chariot :</label>
-        <select id="etat" name="etat">
+        <select id="etat" name="etat" required>
           <option value="">--Sélectionner un état--</option>
           <option value="fonctionnel">Chariot fonctionnel</option>
           <option value="endommagé">Chariot endommagé mais roulant</option>
@@ -71,7 +94,9 @@ function App() {
         <label htmlFor="photo">Photo (facultatif) :</label>
         <input type="file" id="photo" name="photo" accept="image/*" />
 
-        <button type="submit">Envoyer</button>
+        <button type="submit" disabled={sending}>
+          {sending ? "Envoi en cours..." : "Envoyer"}
+        </button>
       </form>
     </div>
   );
