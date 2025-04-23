@@ -1,5 +1,1 @@
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
-}
+{'routes': [{'src': '/api/send-email', 'methods': ['POST'], 'dest': '/api/send-email.js'}, {'src': '/(.*)', 'dest': '/index.html'}]}
