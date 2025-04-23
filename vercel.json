@@ -1,1 +1,1 @@
-{'routes': [{'src': '/api/send-email', 'methods': ['POST'], 'dest': '/api/send-email.js'}, {'src': '/(.*)', 'dest': '/index.html'}]}
+{"routes": [{"src": "/api/(.*)", "dest": "api/$1.js"}, {"src": "/(.*)", "dest": "/index.html"}]}
