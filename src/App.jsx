@@ -1,24 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Admin from "./Admin";
 import "./style.css";
 
+function Scanner({ onScan }) {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/html5-qrcode";
+    script.async = true;
+    script.onload = () => {
+      const html5QrCode = new Html5Qrcode("scanner");
+      Html5Qrcode.getCameras().then(cameras => {
+        if (cameras && cameras.length) {
+          html5QrCode.start(
+            { facingMode: "environment" },
+            { fps: 10, qrbox: 150 },
+            qrCodeMessage => {
+              onScan(qrCodeMessage);
+              html5QrCode.stop();
+            }
+          );
+        }
+      });
+    };
+    document.body.appendChild(script);
+  }, [onScan]);
+
+  return <div id="scanner" className="scanner-box"></div>;
+}
+
 function App() {
+  const handleScan = value => {
+    const input = document.getElementById("chariot");
+    if (input) input.value = value;
+  };
+
   return (
     <div>
       <header>
         <h1>Gestion des Anomalies Chariots</h1>
-        <a href="/">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Kuehne%2BNagel_Logo.svg/2560px-Kuehne%2BNagel_Logo.svg.png"
-            alt="Kuehne+Nagel"
-          />
-        </a>
+        <img src="/logo.png" alt="Kuehne+Nagel Logo" className="logo" />
       </header>
 
       <form>
-        <label htmlFor="chariot">Code Chariot :</label>
-        <input type="text" id="chariot" name="chariot" placeholder="Scannez ou entrez le code" />
+        <div className="scan-row">
+          <label htmlFor="chariot">Code Chariot :</label>
+          <input type="text" id="chariot" name="chariot" placeholder="Scannez ou entrez le code" />
+          <Scanner onScan={handleScan} />
+        </div>
 
         <label htmlFor="anomalie">Type d'anomalie :</label>
         <select id="anomalie" name="anomalie">
