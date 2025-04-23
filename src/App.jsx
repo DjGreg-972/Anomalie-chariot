@@ -57,16 +57,19 @@ function App() {
         </div>
         {showScanner && <Scanner onScan={handleScan} onClose={() => setShowScanner(false)} />}
 
-        <label htmlFor="anomalie">Type d'anomalie :</label>
-        <select id="anomalie" name="anomalie">
-          <option value="">--Choisir une anomalie--</option>
-          <option value="roue">Problème de roue</option>
-          <option value="frein">Problème de frein</option>
-          <option value="autre">Autre</option>
+        <label htmlFor="etat">État du chariot :</label>
+        <select id="etat" name="etat">
+          <option value="">--Sélectionner un état--</option>
+          <option value="fonctionnel">Chariot fonctionnel</option>
+          <option value="endommagé">Chariot endommagé mais roulant</option>
+          <option value="arret">Chariot à l’arrêt</option>
         </select>
 
+        <label htmlFor="commentaire">Commentaires :</label>
+        <textarea id="commentaire" name="commentaire" rows="4" placeholder="Ajoutez un commentaire..."></textarea>
+
         <label htmlFor="photo">Photo (facultatif) :</label>
-        <input type="file" id="photo" name="photo" accept="image/*" capture="environment" />
+        <input type="file" id="photo" name="photo" accept="image/*" />
 
         <button type="submit">Envoyer</button>
       </form>
