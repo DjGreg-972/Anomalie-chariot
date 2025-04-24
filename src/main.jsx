@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MainApp from './App.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import App from './App.jsx';
+import Admin from './Admin.jsx';
+import './style.css';
 
-const root = document.getElementById('root');
-
-ReactDOM.createRoot(root).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MainApp />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
