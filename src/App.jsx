@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import './style.css';
+import QrScanner from 'react-qr-scanner';
 
 export default function App() {
   const [code, setCode] = useState('');
@@ -8,20 +8,41 @@ export default function App() {
   const [state, setState] = useState('');
   const [comment, setComment] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [scanOpen, setScanOpen] = useState(false);
+
+  const handleScan = (data) => {
+    if (data) {
+      setCode(data.text || data);
+      setScanOpen(false);
+    }
+  };
+
+  const handleError = (err) => {
+    console.error(err);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ code, serialNumber, state, comment, photo });
-    // Logique d'envoi
   };
 
   return (
     <div className="container">
-      <h1>Gestion des Anomalies Chariots</h1>
+      <header className="header">
+        <h1>Anomalies Chariots</h1>
+        <img src="/logo.png" alt="Logo Kuehne+Nagel" className="logo" />
+      </header>
       <form onSubmit={handleSubmit}>
         <label>Code Chariot :</label>
-        <input type="text" value={code} onChange={(e) => setCode(e.target.value)} />
-        
+        <div className="row">
+          <input
+            type="text"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+          <button type="button" onClick={() => setScanOpen(true)}>Scanner</button>
+        </div>
+
         <label>Numéro de Série :</label>
         <input type="text" value={serialNumber} onChange={(e) => setSerialNumber(e.target.value)} />
 
@@ -41,6 +62,18 @@ export default function App() {
 
         <button type="submit">Envoyer</button>
       </form>
+
+      {scanOpen && (
+        <div className="scan-popup">
+          <QrScanner
+            delay={300}
+            onError={handleError}
+            onScan={handleScan}
+            style={{ width: '100%' }}
+          />
+          <button onClick={() => setScanOpen(false)}>Fermer</button>
+        </div>
+      )}
     </div>
   );
 }

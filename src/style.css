@@ -1,4 +1,3 @@
-
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom right, #d0ebff, #a0c4ff);
@@ -12,6 +11,14 @@ body {
   padding: 2rem;
   border-radius: 10px;
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  height: 50px;
+}
 label {
   display: block;
   margin-top: 1rem;
@@ -22,9 +29,29 @@ input, select, textarea, button {
   padding: 0.5rem;
   border-radius: 5px;
 }
-button {
-  background-color: #004c97;
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+.row input {
+  flex: 1;
+}
+.scan-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.scan-popup button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #004c97;
   color: white;
   border: none;
-  margin-top: 1rem;
 }
