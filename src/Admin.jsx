@@ -1,63 +1,38 @@
 import React, { useState } from 'react';
+import './style.css';
 
-function Admin() {
+export default function Admin() {
   const [password, setPassword] = useState('');
-  const [authenticated, setAuthenticated] = useState(false);
-  const [emails, setEmails] = useState(['djmoot972@gmail.com']);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = () => {
-    if (password === 'admin59') {
-      setAuthenticated(true);
+    if (password === 'admin123') {
+      setIsAuthenticated(true);
     } else {
       alert('Mot de passe incorrect');
     }
   };
 
-  const handleAddEmail = () => {
-    const newEmail = prompt("Nouvelle adresse email à ajouter :");
-    if (newEmail) {
-      setEmails([...emails, newEmail]);
-    }
-  };
-
-  const handleRemoveEmail = (index) => {
-    const newList = [...emails];
-    newList.splice(index, 1);
-    setEmails(newList);
-  };
-
-  if (!authenticated) {
+  if (isAuthenticated) {
     return (
-      <div className="app">
-        <h2>Accès Admin</h2>
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={handleLogin}>Se connecter</button>
+      <div className="container">
+        <h2>Page Admin</h2>
+        <p>Bienvenue dans l'interface d'administration.</p>
+        {/* Tu peux rajouter ici tes composants d'administration */}
       </div>
     );
   }
 
   return (
-    <div className="app">
-      <h2>Mode Administrateur</h2>
-      <p>Liste des destinataires d'email :</p>
-      <ul>
-        {emails.map((email, index) => (
-          <li key={index}>
-            {email}
-            <button onClick={() => handleRemoveEmail(index)} style={{ marginLeft: '10px' }}>
-              Supprimer
-            </button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleAddEmail}>Ajouter une adresse</button>
+    <div className="container">
+      <h2>Accès Admin</h2>
+      <input
+        type="password"
+        placeholder="Mot de passe"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Se connecter</button>
     </div>
   );
 }
-
-export default Admin;
