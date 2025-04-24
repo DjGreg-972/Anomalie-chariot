@@ -1,67 +1,30 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 body {
-  background: linear-gradient(135deg, #e0f2ff, #b3d7ff);
-  color: #003366; /* bleu foncé du logo */
-  min-height: 100vh;
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #d0ebff, #a0c4ff);
+  margin: 0;
+  padding: 0;
 }
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-header img {
-  height: 50px;
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #003366;
-}
-
-form {
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
   background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 2rem;
+  border-radius: 10px;
 }
-
-input, select, textarea, button {
+label {
   display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  margin-top: 1rem;
 }
-
+input, select, textarea, button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
 button {
-  background-color: #00529b;
+  background-color: #004c97;
   color: white;
   border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background-color: #003f77;
-}
-
-footer {
-  text-align: center;
-  margin-top: 40px;
-  color: #555;
-  font-size: 14px;
+  margin-top: 1rem;
 }
