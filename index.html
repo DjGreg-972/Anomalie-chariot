@@ -2,50 +2,51 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Gestion des Anomalies Chariots</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"/>
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="https://www.kn-portal.com/fileadmin/_processed_/6/c/csm_Kuehne_Nagel_Logo_fc7c2d155c.png" alt="Kuehne+Nagel" class="logo">
-        </header>
+    <div class="main-wrapper">
+        <div class="container">
+            <header>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Kuehne+Nagel_Logo.svg/512px-Kuehne+Nagel_Logo.svg.png" alt="Kuehne+Nagel" class="logo">
+            </header>
 
-        <h1>Gestion des Anomalies Chariots</h1>
+            <h1>Gestion des Anomalies Chariots</h1>
 
-        <form id="anomaly-form">
-            <label for="code">Code Chariot :</label>
-            <div class="input-group-row">
-                <input type="text" id="code" name="code" placeholder="Scannez ou entrez le code">
-                <button type="button" id="scan-button">Scanner</button>
-            </div>
+            <form id="anomaly-form">
+                <label for="code">Code Chariot :</label>
+                <div class="input-group-row">
+                    <input type="text" id="code" name="code" placeholder="Scannez ou entrez le code">
+                    <button type="button" id="scan-button">Scanner</button>
+                </div>
 
-            <div id="reader" style="width: 100%; margin-bottom: 1rem; display: none;"></div>
+                <div id="reader" style="width: 100%; margin-bottom: 1rem; display: none;"></div>
 
-            <label for="serial">Numéro de série :</label>
-            <input type="text" id="serial" name="serial" placeholder="Numéro de série">
+                <label for="serial">Numéro de série :</label>
+                <input type="text" id="serial" name="serial" placeholder="Numéro de série">
 
-            <label for="etat">État du chariot :</label>
-            <select id="etat" name="etat">
-                <option>--Choisir une anomalie--</option>
-                <option value="pneu">Problème de pneu</option>
-                <option value="frein">Problème de frein</option>
-                <option value="moteur">Problème moteur</option>
-            </select>
+                <label for="etat">État du chariot :</label>
+                <select id="etat" name="etat">
+                    <option>--Choisir une anomalie--</option>
+                    <option value="pneu">Problème de pneu</option>
+                    <option value="frein">Problème de frein</option>
+                    <option value="moteur">Problème moteur</option>
+                </select>
 
-            <label for="comment">Commentaires :</label>
-            <textarea id="comment" name="comment" placeholder="Commentaires..."></textarea>
+                <label for="comment">Commentaires :</label>
+                <textarea id="comment" name="comment" placeholder="Commentaires..."></textarea>
 
-            <label for="photo">Photo (facultatif) :</label>
-            <input type="file" id="photo" name="photo" accept="image/*">
+                <label for="photo">Photo (facultatif) :</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
 
-            <button type="submit" class="send-button">Envoyer</button>
-        </form>
+                <button type="submit" class="send-button">Envoyer</button>
+            </form>
+        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
