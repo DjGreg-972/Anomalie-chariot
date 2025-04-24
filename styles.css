@@ -37,10 +37,11 @@ label {
 
 input, select, textarea {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
 textarea {
@@ -51,18 +52,21 @@ textarea {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .input-group-row input {
     flex: 1;
+    padding: 0.75rem;
 }
 
 #scan-button {
     background-color: #004b87;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
 }
 

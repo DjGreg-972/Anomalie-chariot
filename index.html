@@ -6,21 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Anomalies Chariots</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Kuehne+Nagel_Logo.svg/512px-Kuehne+Nagel_Logo.svg.png" alt="Kuehne+Nagel" class="logo">
+            <img src="https://www.kn-portal.com/fileadmin/_processed_/6/c/csm_Kuehne_Nagel_Logo_fc7c2d155c.png" alt="Kuehne+Nagel" class="logo">
         </header>
 
         <h1>Gestion des Anomalies Chariots</h1>
 
         <form id="anomaly-form">
+            <label for="code">Code Chariot :</label>
             <div class="input-group-row">
-                <label for="code">Code Chariot :</label>
                 <input type="text" id="code" name="code" placeholder="Scannez ou entrez le code">
                 <button type="button" id="scan-button">Scanner</button>
             </div>
+
+            <div id="reader" style="width: 100%; margin-bottom: 1rem; display: none;"></div>
 
             <label for="serial">Numéro de série :</label>
             <input type="text" id="serial" name="serial" placeholder="Numéro de série">
