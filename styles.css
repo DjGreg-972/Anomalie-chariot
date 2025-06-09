@@ -39,3 +39,6 @@ body.home {
   object-fit: contain;
   margin-bottom: 10px;
 }
+
+/* Import spécifique admin */
+@import url("admin.css");
