@@ -1,0 +1,11 @@
+
+.etat.vert { color: green; font-weight: bold; }
+.etat.orange { color: orange; font-weight: bold; }
+.etat.rouge { color: red; font-weight: bold; }
+form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

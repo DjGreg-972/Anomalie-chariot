@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Ajouter un chariot</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <h1>Ajouter un chariot</h1>
+  <form id="chariotForm">
+    <label for="nom">Nom du chariot :</label>
+    <input type="text" id="nom" required>
+
+    <label for="etat">État :</label>
+    <select id="etat">
+      <option value="vert">Fonctionnel</option>
+      <option value="orange">En réparation</option>
+      <option value="rouge">En panne</option>
+    </select>
+
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <h2>Parc actuel</h2>
+  <ul id="chariotList"></ul>
+
+  <script src="admin.js"></script>
+</body>
+</html>
