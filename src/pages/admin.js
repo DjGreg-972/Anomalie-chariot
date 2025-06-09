@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadChariots = () => {
     const data = JSON.parse(localStorage.getItem('chariots') || '[]');
     list.innerHTML = '';
-    data.forEach((c, i) => {
+    data.forEach((c) => {
       const li = document.createElement('li');
       li.innerHTML = `<strong>${c.nom}</strong> — <span class="etat ${c.etat}">${getEtatLabel(c.etat)}</span>`;
       list.appendChild(li);
