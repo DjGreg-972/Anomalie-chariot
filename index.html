@@ -1,55 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Gestion des Anomalies Chariots</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-    <link rel="apple-touch-icon" href="icon-512.png">
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
-    <div class="main-wrapper">
-        <div class="container">
-            <header>
-                <img src="logo-kn.png" alt="Kuehne+Nagel" class="logo">
-            </header>
+<body class="home">
 
-            <h1>Gestion des Anomalies Chariots</h1>
+  <header>
+    <img src="./logo_kn.png" alt="Kuehne+Nagel" class="logo-kn">
+  </header>
 
-            <form id="anomaly-form">
-                <label for="code">Code Chariot :</label>
-                <div class="input-group-row">
-                    <input type="text" id="code" name="code" placeholder="Scannez ou entrez le code">
-                    <button type="button" id="scan-button">Scanner</button>
-                </div>
-
-                <div id="reader" style="width: 100%; margin-bottom: 1rem; display: none;"></div>
-
-                <label for="serial">Numéro de série :</label>
-                <input type="text" id="serial" name="serial" placeholder="Numéro de série">
-
-                <label for="etat">État du chariot :</label>
-                <select id="etat" name="etat">
-                    <option>--Choisir une anomalie--</option>
-                    <option value="roulant">Chariot roulant</option>
-                    <option value="defectueux">Chariot défectueux</option>
-                    <option value="immobilise">Chariot immobilisé</option>
-                </select>
-
-                <label for="comment">Commentaires :</label>
-                <textarea id="comment" name="comment" placeholder="Commentaires..."></textarea>
-
-                <label for="photo">Photo (facultatif) :</label>
-                <input type="file" id="photo" name="photo" accept="image/*">
-
-                <button type="submit" class="send-button">Envoyer</button>
-            </form>
-        </div>
+  <main>
+    <h1>Accueil</h1>
+    <div class="grid">
+      <a href="./src/pages/anomalie.html" class="card">
+        <img src="./icon-anomalie.png" alt="Déclarer">
+        <p>Déclaration d'anomalie</p>
+      </a>
+      <a href="./src/pages/etat-parc.html" class="card">
+        <img src="./icon-etat.png" alt="Parc">
+        <p>État du parc chariots</p>
+      </a>
+      <a href="./src/pages/admin.html" class="card">
+        <img src="./icon-admin.png" alt="Admin">
+        <p>Admin</p>
+      </a>
+      <a href="./src/pages/anomalies.html" class="card">
+        <img src="./icon-log.png" alt="Anomalies">
+        <p>Anomalies chariots</p>
+      </a>
     </div>
-    <script src="script.js"></script>
+  </main>
+
 </body>
 </html>
