@@ -1,99 +1,41 @@
-
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #e8f0ff, #cde0ff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+body.home {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to bottom, #005b9f, #66b3ff);
+  color: white;
+  text-align: center;
 }
-
-.main-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.logo-kn {
+  width: 120px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
-
-.container {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 2rem;
-    width: 90%;
-    max-width: 500px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 100px 20px 40px;
+  max-width: 800px;
+  margin: auto;
 }
-
-.logo {
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-    max-height: 50px;
+.card {
+  background-color: #0073b7;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
 }
-
-h1 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #003366;
+.card:hover {
+  transform: scale(1.05);
 }
-
-label {
-    display: block;
-    margin: 0.75rem 0 0.25rem;
-    font-weight: 500;
-    color: #333;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    border: 1px solid #bbb;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-}
-
-textarea {
-    resize: vertical;
-}
-
-.input-group-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.input-group-row input {
-    flex: 1;
-    padding: 0.75rem;
-}
-
-#scan-button {
-    background-color: #004b87;
-    color: white;
-    border: none;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.send-button {
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.9rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.send-button:hover {
-    background-color: #0056b3;
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
