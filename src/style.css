@@ -1,0 +1,36 @@
+body.home {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to bottom, #005b9f, #66b3ff);
+  color: white;
+  text-align: center;
+}
+.logo-kn {
+  width: 120px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 100px 20px 40px;
+}
+.card {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card img {
+  width: 50px;
+  margin-bottom: 10px;
+}
